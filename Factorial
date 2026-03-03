@@ -1,0 +1,23 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class Main {
+    public static void main(String[] args){
+        System.out.print("Enter the numbers : ");
+        Scanner pos = new Scanner(System.in);
+        int k = pos.nextInt();
+        int los = 1;
+        for(int i = k;i>=1;i--){
+            los = los * i;
+   
+    
+            
+            
+        }
+        
+ System.out.println("The factorial of the " + k +  " is " + los);
+        
+        
+        
+    }
+}
