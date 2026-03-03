@@ -1,0 +1,14 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        System.out.print("Enter the numbers : ");
+        Scanner pos = new Scanner(System.in);
+        int k = pos.nextInt();
+         int l = pos.nextInt();
+          int m = pos.nextInt();
+          int lok = Math.max(k,Math.max(l,m));
+          System.out.print(lok);
+       
+  
+    }
+}
