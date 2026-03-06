@@ -1,0 +1,17 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+      Scanner pos = new Scanner(System.in);
+      String p = pos.nextLine();
+      String l = p.toUpperCase();
+      String k = p.toLowerCase();
+      System.out.println("uppercase : " + l);
+      System.out.println("lowercase : " + k);
+          
+    
+    }
+   
+}
