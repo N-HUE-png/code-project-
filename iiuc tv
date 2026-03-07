@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class IIUCTV {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+
+        if (input.hasNextInt()) {
+            int n = input.nextInt();
+            
+           
+            int subscriptions = (n + 5) / 6;
+            
+            int totalCost = subscriptions * 300;
+            
+            System.out.println(totalCost);
+        }
+        
+       // input.close();
+    }
+}
