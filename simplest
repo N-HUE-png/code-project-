@@ -1,0 +1,11 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        System.out.print("Your name : ");
+  Scanner pessi = new Scanner(System.in);
+  
+  String name = pessi.nextLine();
+  System.out.print("Hellow ,Your  Name ");
+  System.out.print(name);
+    }
+}
