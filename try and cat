@@ -1,0 +1,21 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+      //  System.out.println("Try programiz.pro");
+    //   Scanner pos = new Scanner (System.in);
+    //   int n = pos.nextInt();
+    //   System.out.print("hellow" + n);
+    try{
+        int a = 10;
+        int b = 0;
+     int result = a / b;
+     System.out.print("result " + result);
+
+    }
+      catch (Exception e){
+          System.out.print("Error cannot divide by zero");
+      }
+    }
+}
