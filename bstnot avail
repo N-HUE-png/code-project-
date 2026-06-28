@@ -1,0 +1,151 @@
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node *left;
+    Node *right;
+};
+
+// Create Node
+Node* createNode(int value) {
+    Node* newNode = new Node();
+    newNode->data = value;
+    newNode->left = NULL;
+    newNode->right = NULL;
+    return newNode;
+}
+
+// Insert
+Node* insert(Node* root, int value) {
+    if (root == NULL)
+        return createNode(value);
+
+    if (value < root->data)
+        root->left = insert(root->left, value);
+    else if (value > root->data)
+        root->right = insert(root->right, value);
+
+    return root;
+}
+
+// Search
+bool search(Node* root, int value) {
+    if (root == NULL)
+        return false;
+
+    if (root->data == value)
+        return true;
+
+    if (value < root->data)
+        return search(root->left, value);
+
+    return search(root->right, value);
+}
+
+// Find Minimum
+Node* minValue(Node* root) {
+    while (root->left != NULL)
+        root = root->left;
+
+    return root;
+}
+
+// Delete
+Node* deleteNode(Node* root, int value) {
+
+    if (root == NULL)
+        return NULL;
+
+    if (value < root->data)
+        root->left = deleteNode(root->left, value);
+
+    else if (value > root->data)
+        root->right = deleteNode(root->right, value);
+
+    else {
+
+        if (root->left == NULL) {
+            Node* temp = root->right;
+            delete root;
+            return temp;
+        }
+
+        if (root->right == NULL) {
+            Node* temp = root->left;
+            delete root;
+            return temp;
+        }
+
+        Node* temp = minValue(root->right);
+        root->data = temp->data;
+        root->right = deleteNode(root->right, temp->data);
+    }
+
+    return root;
+}
+
+// Inorder
+void inorder(Node* root) {
+    if (root == NULL)
+        return;
+
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+}
+
+// Preorder
+void preorder(Node* root) {
+    if (root == NULL)
+        return;
+
+    cout << root->data << " ";
+    preorder(root->left);
+    preorder(root->right);
+}
+
+// Postorder
+void postorder(Node* root) {
+    if (root == NULL)
+        return;
+
+    postorder(root->left);
+    postorder(root->right);
+    cout << root->data << " ";
+}
+
+int main() {
+
+    Node* root = NULL;
+
+    root = insert(root, 64);
+    root = insert(root, 1);
+    root = insert(root, 44);
+    root = insert(root, 26);
+    root = insert(root, 13);
+    root = insert(root, 110);
+    root = insert(root, 98);
+    root = insert(root, 85);
+
+    cout << "Inorder: ";
+    inorder(root);
+
+    cout << "\nPreorder: ";
+    preorder(root);
+
+    cout << "\nPostorder: ";
+    postorder(root);
+
+    if (search(root, 44))
+        cout << "\n44 Found";
+    else
+        cout << "\n44 Not Found";
+
+    root = deleteNode(root, 26);
+
+    cout << "\nAfter deleting 26: ";
+    inorder(root);
+
+    return 0;
+}
